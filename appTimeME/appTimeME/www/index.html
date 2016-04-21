@@ -13,9 +13,8 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
         <!--
-            These are the additional libraries for developing a mobile application. They mey be not needed
-        -->
-         <!--
+            These are the additional libraries for developing a mobile application.
+       
              Before debug on a device go to Tools->Visual Studio Command Propmpt-> and enter   
              "%ADT_HOME%\platform-tools\adb.exe" devices
              to see if VS see the device.
@@ -23,24 +22,16 @@
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <script src="scripts/jquery-2.2.3.min.js"></script>
         <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
-
         <link rel="stylesheet" type="text/css" href="css/index.css">
-       
-       
-       
-        <style>
-             h1 {
-        color: cornflowerblue;
-        }
-        </style>
-
 
     </head>
 
 
 
     <body>
-        <!--Main menu page-->
+        <!--The body is devided this way because cordova is a single web page application
+            If you want to add new pages you need to follow this layout
+            Main menu page-->
         <div id="appWrapper">
             <div id="pgMenu" class="centerPage">
                 <div class="appScreen">
@@ -68,11 +59,15 @@
                     </div>
                         <div id="createRoutine" class="screenBody">
                             <!-- HERE Goes the body for create routine-->
-                            <form action="alarm_form" method="get" id="routinesForm">
-                                <appendTimersHere><input type="number" name="minutes[]" value=0 /> <br /></appendTimersHere>
+                            <form name="timerCreationForm" onsubmit="return myFunc()">
                                 <p>Add tasks by entering the name, duration of time in minutes and comments.</p>
+
+                                <!-- Here is where the user gives his input,
+                                    Need to create a function handler to parse that input and save it to a file
+                                    I think we may use another button instead of <input type="submit"> 
+                                    but I would do this only in last resort-->
                                 <appendTimersHere></appendTimersHere>
-                                <input type="submit" value="Save Routine">
+                                <input name="Sumbit" type="submit" value="Save Routine" />
                             </form>
                             <div id="addTimer" class="myButton">Add another Task</div>
                             <div id="clearRoutine" class="myButton">Clear Routine</div>
@@ -87,8 +82,13 @@
                         <div>SetAlarm</div>
                     </div>
                     <div class="screenBody">
-                        <!-- HERE Goes the body for create routine-->
+                        <!-- HERE Goes the body for Set Alarm-->
                         <form action="alarm_form" method="get">
+                            <!-- Here is where the user gives his input,
+                                 Need to create a function handler to parse that input and save it to a file
+                                 I think we may use another button instead of <input type="submit">
+                                 but I would do this only in last resort-->
+
                             <input type="checkbox" name="day" value="Monday" /> Monday<input type="time" name="mondayTime" placeholder="hrs:mins" value="08:00:00" /><br>
                             <input type="checkbox" name="day" value="Tuesday" /> Tuesday<input type="time" name="tuesdayTime" placeholder="hrs:mins" value="08:00:00" /><br>
                             <input type="checkbox" name="day" value="Wednesday" /> Wednesday<input type="time" name="wednesdayTime" placeholder="hrs:mins" value="08:00:00" /><br>
@@ -109,7 +109,7 @@
                         <div>ChangeBackground</div>
                     </div>
                     <div class="screenBody">
-                        <!-- HERE Goes the body for create routine-->
+                        <!-- HERE Goes the body for Change Background-->
                     </div>
                 </div>
             </div>

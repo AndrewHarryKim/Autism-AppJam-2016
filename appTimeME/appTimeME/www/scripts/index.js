@@ -8,8 +8,7 @@
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
-        //populate the database
-
+        // I think loading or creation of JSON should be called in here
 
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
@@ -20,7 +19,7 @@
         var exitButton = document.querySelector("#menuExit");
         exitButton.addEventListener("click", exitApp, false);
 
-        // create your morning routine buttons
+        // create your morning routine button
         var createMorningRoutineButton = document.querySelector("#menuCreateYourMorningRoutine");
         createMorningRoutineButton.addEventListener("click", createYourMorningRoutine, false);
 
@@ -44,11 +43,11 @@
         var clearRoutineButton = document.querySelector("#clearRoutine");
         clearRoutineButton.addEventListener("click", clearRoutineFunc, false);
 
-        // Buttons inside set alarm
+        // Buttons inside SET ALARM
         var backToMenuFromAlarm = document.querySelector("#backToMenuFromAlarm");
         backToMenuFromAlarm.addEventListener("click", backToMenuFromAlarmFunc, false);
 
-        // Buttons inside change background
+        // Buttons inside CHANGE BACKGROUND
         var backToMenuFromBackground = document.querySelector("#backToMenuFromBackground");
         backToMenuFromBackground.addEventListener("click", backToMenuFromBackgroundFunc, false);
 
@@ -92,7 +91,8 @@
 
     function addAnotherTimer(e) {
         $("appendTimersHere").hide().fadeIn('1000').append('<input type="text" name="timers[]" value="New Task"/>' +
-            '<input type="number" name="minutes[]" value=1 /> <br />');
+            '<input type="number" name="minutes[]" value=1 /> '+
+            '<input type="text" name="timers[]" value="Comments"/><br />');
     }
 
 
@@ -111,6 +111,8 @@
         $('#pgMenu').removeClass('leftPage').addClass('centerPage');
         $('#pgChangeBackground').removeClass('centerPage').addClass('rightPage');
     }
+
+
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
