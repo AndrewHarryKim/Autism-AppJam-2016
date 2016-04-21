@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TimeME</title>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+       
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <!--
+            These are the additional libraries for developing a mobile application.
+       
+             Before debug on a device go to Tools->Visual Studio Command Propmpt-> and enter   
+             "%ADT_HOME%\platform-tools\adb.exe" devices
+             to see if VS see the device.
+         -->
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <script src="scripts/jquery-2.2.3.min.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <script type="text/javascript" charset="utf-8" src="index.js"></script>
+
+    </head>
+
+
+
+    <body>
+        <!--The body is divided this way because cordova is a single web page application
+            If you want to add new pages you need to follow this layout
+            Main menu page-->
+        <div id="appWrapper">
+            <div id="pgMenu" class="centerPage">
+                <div class="appScreen">
+                    <div class="screenHeader">
+                        <div>Time Me</div>
+                    </div><!-- End of Screen header-->
+                    <div class="screenBody">
+                        <ul class="buttonsList">
+                            <li id="menuCreateYourMorningRoutine">Create Your Morning Routine</li>
+                            <li id="menuSetAlarm">Set Alarm</li>
+                            <li id="menuChangeBackground">Change Background</li>
+                            <li id="menuExit">Exit</li>
+                        </ul>
+                        <!--Here goes content for main Menu Frame below the button list-->
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- End of Main Menu page-->
+
+
+
+            <!--Create Your Morning Routine page-->
+            <div id="pgCreateRoutine" class="rightPage">
+                <div class="appScreen scrollable">
+                    <div class="screenHeader">
+                        <div id="backToMenuFromCreate"  class="headerBackButtom headerOnTheLeft"></div>
+                        <div>Create your own Morning Routine</div>
+                    </div> <!-- End of Screen header-->
+                    <div id="createRoutine" class="screenBody">
+                        <!-- HERE Goes the body for create routine-->
+                        <form name="timerCreationForm" onsubmit="return getRoutineData(this)">
+                            <!-- Possibly do nothing once a form is submitted. No other page is called for immediate need. -->
+                            <p>Add tasks by entering the name, duration of time in minutes and comments.</p>
+
+                            <!-- Here is where the user gives his input,
+                                Need to create a function handler to parse that input and save it to a file
+                                I think we may use another button instead of <input type="submit"> 
+                                but I would do this only in last resort-->
+                            <appendTimersHere></appendTimersHere>
+                            <input name="Submit" type="submit" value="Save Routine" />
+                        </form>
+                        <div id="addTimer" class="myButton">Add another Task</div>
+                        <div id="clearRoutine" class="myButton">Clear Routine</div>
+
+                        <p id="demo"></p>
+                    </div>
+                </div>
+            </div>
+            <!--End of Create Your Morning Routine page-->
+            
+        
+        
+            <!--Set Alarm page-->
+            <div id="pgSetAlarm" class="rightPage ">
+                <div class="appScreen scrollable">
+                    <div class="screenHeader">
+                        <div id="backToMenuFromAlarm" class="headerBackButtom headerOnTheLeft"></div>
+                        <div>SetAlarm</div>
+                    </div><!-- End of Screen header-->
+                    <div class="screenBody">
+                        <!-- HERE Goes the body for Set Alarm-->
+                        <form action="alarm_form" method="get">
+                            <!-- Here is where the user gives his input,
+                                 Need to create a function handler to parse that input and save it to a file
+                                 I think we may use another button instead of <input type="submit">
+                                 but I would do this only in last resort-->
+
+                            <input type="checkbox" name="day" value="Monday" /> Monday<input type="time" name="mondayTime" placeholder="hrs:mins" value="08:00:00" /><br>
+                            <input type="checkbox" name="day" value="Tuesday" /> Tuesday<input type="time" name="tuesdayTime" placeholder="hrs:mins" value="08:00:00" /><br>
+                            <input type="checkbox" name="day" value="Wednesday" /> Wednesday<input type="time" name="wednesdayTime" placeholder="hrs:mins" value="08:00:00" /><br>
+                            <input type="checkbox" name="day" value="Thursday" /> Thursday<input type="time" name="thursdayTime" placeholder="hrs:mins" value="08:00:00" /><br>
+                            <input type="checkbox" name="day" value="Friday" /> Friday<input type="time" name="fridayTime" placeholder="hrs:mins" value="08:00:00" /><br>
+                            <input type="checkbox" name="day" value="Saturday" /> Saturday<input type="time" name="saturdayTime" placeholder="hrs:mins" value="08:00:00" /><br>
+                            <input type="checkbox" name="day" value="Sunday" /> Sunday<input type="time" name="sundayTime" placeholder="hrs:mins" value="08:00:00" /><br>
+                            <input type="submit" value="Save">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--End of Set Alarm page-->
+            
+        
+        
+            <!--Change Background page-->
+            <div id="pgChangeBackground" class="rightPage">
+                <div class="appScreen">
+                    <div class="screenHeader">
+                        <div id="backToMenuFromBackground" class="headerBackButtom headerOnTheLeft"></div>
+                        <div>ChangeBackground</div>
+                    </div><!-- End of Screen header-->
+                    <div class="screenBody">
+                        <!-- HERE Goes the body for Change Background-->
+                    </div>
+                </div>
+            </div>
+            <!-- End of Change Background page-->
+
+        </div> <!-- End of appWrapper div-->
+
+
+
+
+
+      
+        
+
+
+
+
+        <!-- This is cordova reference. -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+</html>
