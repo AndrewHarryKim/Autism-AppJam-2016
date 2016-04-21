@@ -1,0 +1,34 @@
+{
+	"<WEEKNAME>": 
+	[
+
+		{
+			"start": "<TIME>",
+			"end": "<TIME>",
+			"extenstions": "1",
+			"title":"<ALARM TITLE>",
+			"description":"<DESCRIBED HERE>"
+
+
+		}
+		,
+
+
+		{
+			"start": "<TIME>",
+			"end": "<TIME>",
+			"extenstions": "1",
+			"title":"<ALARM TITLE>",
+			"description":"<DESCRIBED HERE>"
+
+
+		}
+	]
+	,
+	"<WEEKNAME-TASKAMT>": "1"
+
+}
+
+
+// fName.Monday[0]["Start"]
+// fName.MondayCount

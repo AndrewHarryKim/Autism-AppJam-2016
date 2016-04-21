@@ -1,0 +1,259 @@
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-color:#32383d;
+    font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+    font-size:12px;
+}
+
+.app {
+    background: url(../images/cordova.png) no-repeat center top; 
+    background-size: contain;
+    position: absolute;             
+    left: 50%;
+    top: 50%;
+    height: 30px;                  
+    width: 250px;                   
+    text-align: center;
+    padding: 200px 0px 0px 0px;     
+    margin: -125px;
+}
+
+.event {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #FFFFFF;
+    margin: 27px;
+    padding: 4px 0px;
+    text-transform: uppercase;
+    background-color: #696969;
+    animation: fade 3000ms infinite;
+    -webkit-animation: fade 3000ms infinite;
+}
+
+
+
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+    /*STARTOF Multipage application*/
+
+#appWrapper {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow-x: hidden;
+overflow-y: hidden;
+overflow: hidden;
+}
+
+
+.appScreen {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* GC, OP, SA and FF */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* IE */
+    overflow: hidden;
+}
+
+.leftPage,
+.centerPage,
+.rightPage {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+}
+
+.leftPage {
+    left: -100%;
+}
+
+.centerPage {
+    left: 0;
+}
+
+.rightPage {
+    left: 100%;
+}
+
+/*Screen Headers*/
+.screenHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    font-size: 1.3em;
+    text-align: center;
+    font-family: Papyrus;
+    background-color: white;
+    border-bottom: 2px solid #1284ff;
+}
+
+.headerBackButtom,
+.headerSaveButtom {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.headerBackButtom {
+    background-image: url('../images/back.png');
+}
+
+.headerSaveButtom {
+    background-image: url('../img/save.png');
+}
+
+.headerOnTheLeft { left: 0; }
+.headerOnTheRight { right: 0; }
+
+.headerAddButton {
+    position:absolute;
+    top:0;
+    right: 0;
+    width:40px;
+    height:100%;
+    border:groove;
+}
+
+/* Body of screens*/
+.screenBody {
+    position: relative;
+    top: 38px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    text-align: center;
+    background-color: white;
+    overflow-x: no-display;
+    overflow-y: scroll; /**/
+    -webkit-overflow-scrolling: touch;
+}
+
+.screenBody p {
+    margin-top: 25px;
+    padding: 0 5%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1.5em;
+}
+
+/* This must be appScreens where vertical scrolling is needed*/
+.scrollable {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+}
+
+    /*ENDOF Multipage application*/
+
+    /* STARTOF Buttons Customization*/
+
+.myButton {
+	-moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+	background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+	background-color:#33bdef;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+	background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+	background-color:#019ad2;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.ready {
+
+    background-color: #4B946A;}
+
+
+/* Buttons List for main menu*/
+.buttonsList {
+    margin: 0;
+    padding: 15px 10% 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    
+}
+
+.buttonsList li {
+    line-height: 30px;
+    border: 1px solid #1284ff;
+    font-size: 1em;
+    list-style-type: none;
+}
+
+.buttonsList li:not(:first-child) {
+    margin-top: 15px;
+}
+
+.buttonsList li:active {
+    background-color: #1284ff;
+    color: white;
+}
+
+/* ENDOF Buttons Customization*/
+
+
+@media screen and (orientation: portrait) {
+}
+
+@media screen and (orientation: landscape) {
+}
