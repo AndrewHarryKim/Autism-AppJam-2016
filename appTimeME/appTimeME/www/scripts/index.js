@@ -34,12 +34,15 @@
 
 
       
-        //Buttons inside create your morning routine 
+        //Buttons inside CREATE MORNING ROUTINE
         var backToMenuFromCreateButton = document.querySelector("#backToMenuFromCreate");
         backToMenuFromCreateButton.addEventListener("click", backToMenuFromCreateFunc, false);
 
         var addAnotherTimerButton = document.querySelector("#addTimer");
         addAnotherTimerButton.addEventListener("click", addAnotherTimer, false);
+
+        var clearRoutineButton = document.querySelector("#clearRoutine");
+        clearRoutineButton.addEventListener("click", clearRoutineFunc, false);
 
         // Buttons inside set alarm
         var backToMenuFromAlarm = document.querySelector("#backToMenuFromAlarm");
@@ -86,10 +89,16 @@
         $('#pgCreateRoutine').removeClass('centerPage').addClass('rightPage');
     }
 
+
     function addAnotherTimer(e) {
-        $('<input type="text" name="timers[]" value="New timer name here"/>How long in minutes?' +
-            '<input type="number" name="minutes[]" value=0 /> <br />').hide().fadeIn('1000').appendTo("appendTimersHere");
-        }
+        $("appendTimersHere").hide().fadeIn('1000').append('<input type="text" name="timers[]" value="New Task"/>' +
+            '<input type="number" name="minutes[]" value=1 /> <br />');
+    }
+
+
+    function clearRoutineFunc(e) {
+        $("appendTimersHere").children().remove();
+    }
 
     //SET ALARM FUNCTIONS
     function backToMenuFromAlarmFunc(e) {

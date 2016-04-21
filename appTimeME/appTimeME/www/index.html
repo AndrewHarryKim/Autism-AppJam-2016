@@ -49,7 +49,7 @@
                     </div>
                     <div class="screenBody">
                         <ul class="buttonsList">
-                            <li id="menuCreateYourMorningRoutine">Create your morning routine</li>
+                            <li id="menuCreateYourMorningRoutine">Create Your Morning Routine</li>
                             <li id="menuSetAlarm">Set Alarm</li>
                             <li id="menuChangeBackground">Change Background</li>
                             <li id="menuExit">Exit</li>
@@ -61,20 +61,21 @@
             </div>
             <!--Create Your Morning Routine page-->
             <div id="pgCreateRoutine" class="rightPage">
-                <div class="appScreen">
+                <div class="appScreen scrollable">
                     <div class="screenHeader">
                         <div id="backToMenuFromCreate"  class="headerBackButtom headerOnTheLeft"></div>
-                        
-                        <div>Create your morning routine</div>
+                        <div>Create your own Morning Routine</div>
                     </div>
                         <div id="createRoutine" class="screenBody">
                             <!-- HERE Goes the body for create routine-->
                             <form action="alarm_form" method="get" id="routinesForm">
-                                <input type="text" name="timers[]" value="Type First Timer Name"/>How long in minutes?
                                 <appendTimersHere><input type="number" name="minutes[]" value=0 /> <br /></appendTimersHere>
+                                <p>Add tasks by entering the name, duration of time in minutes and comments.</p>
+                                <appendTimersHere></appendTimersHere>
                                 <input type="submit" value="Save Routine">
                             </form>
-                            <div id="addTimer" class="myButton">Add another Timer</div>
+                            <div id="addTimer" class="myButton">Add another Task</div>
+                            <div id="clearRoutine" class="myButton">Clear Routine</div>
                         </div>
                 </div>
             </div>
